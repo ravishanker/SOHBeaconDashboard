@@ -61,6 +61,7 @@ public class CreateNotification extends HttpServlet {
 		}
 
 		String notificationType1 = null;
+		String beaconAlertText = null;
 		String beaconChooser1 = null;
 		Beacon dynamicBeacon = null;
 		for (FileItem fi : items)
@@ -76,6 +77,10 @@ public class CreateNotification extends HttpServlet {
 			    else if (name.equals("beaconChooser1"))
 			    {
 			    	beaconChooser1 = value;
+			    }
+			    else if (name.equals("beaconAlertText"))
+			    {
+			    	beaconAlertText = value;
 			    }
 			}
 			else if (fi.getFieldName().equals("upload_file"))
@@ -106,6 +111,7 @@ public class CreateNotification extends HttpServlet {
 			System.out.println(fi);
 		}
 		
+		dynamicBeacon.setBeaconAlertText(beaconAlertText);
 		dynamicBeacon.setInbound(notificationType1.equals(DIRECTION_INBOUND));
 		dynamicBeacon.setBeaconName(beaconChooser1);
 		

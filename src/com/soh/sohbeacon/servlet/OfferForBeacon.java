@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.soh.sohbeacon.model.Beacon;
 import com.soh.sohbeacon.store.BeaconStore;
 
@@ -42,7 +43,7 @@ public class OfferForBeacon extends HttpServlet {
 		if (beacon != null)
 		{
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(response.getOutputStream()));
-			bw.write("/stores/"+beacon.getFileName());
+			bw.write(new Gson().toJson(beacon));
 			bw.flush();
 			bw.close();
 		}

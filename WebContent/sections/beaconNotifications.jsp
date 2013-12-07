@@ -10,7 +10,8 @@
 	<thead>
 		<tr>
 			<th width="100">On</th>
-			<th>Beacon Identifier</th>
+			<th width="250">Beacon Identifier</th>
+			<th>Beacon Notification</th>
 			<th width="220">Offer Image</th>
 		</tr>
 	</thead>
@@ -23,6 +24,7 @@
 		<tr>
 			<td><%=beacon.isInbound()?"Entering":"Leaving" %></td>
 			<td><%=beacon.getBeaconName() %></td>
+			<td><%=beacon.getBeaconAlertText() %></td>
 			<td><img alt="thumb" src="/stores/<%=beacon.getFileName() %>" class="beaconPreviewImage"></td>
 		</tr>
 		<%} %>
@@ -36,7 +38,14 @@
 	method="post" 
 	enctype="multipart/form-data" 
 	action="/CreateNotification">
-	
+
+	<div class="form-group">
+		<label for="beaconAlertText" class="col-sm-2 control-label">Alert Text</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="beaconAlertText" name="beaconAlertText"
+				placeholder="Alert Text">
+		</div>
+	</div>
 	<div class="form-group">
 		<label for="notificationType1" class="col-sm-2 control-label">Notification Type</label>
 		<div class="col-sm-10">
