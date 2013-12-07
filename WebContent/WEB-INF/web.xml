@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description></description>
     <display-name>UploadBeacon</display-name>
@@ -20,7 +19,6 @@
     <servlet-name>UploadBeacon</servlet-name>
     <url-pattern>/UploadBeacon</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>CreateNotification</display-name>
@@ -30,5 +28,15 @@
   <servlet-mapping>
     <servlet-name>CreateNotification</servlet-name>
     <url-pattern>/CreateNotification</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OfferForBeacon</display-name>
+    <servlet-name>OfferForBeacon</servlet-name>
+    <servlet-class>com.soh.sohbeacon.servlet.OfferForBeacon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OfferForBeacon</servlet-name>
+    <url-pattern>/OfferForBeacon</url-pattern>
   </servlet-mapping>
 </web-app>
