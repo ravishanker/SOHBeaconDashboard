@@ -24,6 +24,9 @@ import com.soh.sohbeacon.store.BeaconStore;
  * Servlet implementation class UploadBeacon
  */
 public class CreateNotification extends HttpServlet {
+	public static String DIRECTION_INBOUND = "inbound";
+	public static String DIRECTION_OUTBOUND = "outbound";
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -103,7 +106,7 @@ public class CreateNotification extends HttpServlet {
 			System.out.println(fi);
 		}
 		
-		dynamicBeacon.setType(notificationType1);
+		dynamicBeacon.setInbound(notificationType1.equals(DIRECTION_INBOUND));
 		dynamicBeacon.setBeaconName(beaconChooser1);
 		
 		BeaconStore.getInstance().addNotificationBeacon(dynamicBeacon);

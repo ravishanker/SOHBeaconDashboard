@@ -36,4 +36,19 @@ public class BeaconStore {
 	public ArrayList<Beacon> getNotificationBeacons() {
 		return notificationBeacon;
 	}
+
+	public Beacon findNotificationBeacon(
+			String beaconId, boolean inbound) {
+		for (int i = 0; i<notificationBeacon.size(); i++)
+		{
+			Beacon b = notificationBeacon.get(i);
+			
+			if (b.getBeaconName().equals(beaconId)
+					&& b.isInbound() == inbound)
+			{
+				return b;
+			}
+		}
+		return null;
+	}
 }

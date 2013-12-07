@@ -1,4 +1,5 @@
 
+<%@page import="com.soh.sohbeacon.servlet.CreateNotification"%>
 <%@page import="com.soh.sohbeacon.model.Beacon"%>
 <%@page import="com.soh.sohbeacon.store.BeaconStore"%>
 <h2 id="beaconOffers">Beacon notifications</h2>
@@ -20,7 +21,7 @@
 		{
 		%>
 		<tr>
-			<td><%=beacon.getType() %></td>
+			<td><%=beacon.isInbound()?"Entering":"Leaving" %></td>
 			<td><%=beacon.getBeaconName() %></td>
 			<td><img alt="thumb" src="/stores/<%=beacon.getFileName() %>" class="beaconPreviewImage"></td>
 		</tr>
@@ -40,8 +41,8 @@
 		<label for="notificationType1" class="col-sm-2 control-label">Notification Type</label>
 		<div class="col-sm-10">
 			<select class="form-control" id="notificationType1" name="notificationType1">
-				<option value="enter">Enter</option>
-				<option value="leave">Leave</option>
+				<option value="<%=CreateNotification.DIRECTION_INBOUND %>">Enter</option>
+				<option value="<%=CreateNotification.DIRECTION_OUTBOUND %>">Leave</option>
 			</select>
 		</div>
 	</div>
