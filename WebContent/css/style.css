@@ -3,6 +3,10 @@ body {
 	padding-top: 70px;
 }
 
+h2 {
+	margin-top: 70px;
+}
+
 #uploadBeaconFile {
 	display: none;
 }

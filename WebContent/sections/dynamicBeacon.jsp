@@ -22,7 +22,15 @@
 <script>
 	$(document).ready(function(){
 		$("#uploadBeaconFile").click(function(){
-			$("#dynamicBeaconForm").ajaxSubmit();
+			$("#dynamicBeaconForm")
+				.ajaxSubmit({
+					success: function(){
+						alert('done!');
+						$("#uploadBeaconFile").hide();
+						$("#upload-file-info").html('');
+						$("#dynamicBeaconForm")[0].reset();
+					}
+				});
 		});
 	});
 
@@ -33,11 +41,3 @@
 		
 	}
 </script>
-
-
-<p>To see the difference between static and fixed top navbars, just
-	scroll.</p>
-<p>
-	<a class="btn btn-lg btn-primary" href="../../components/#navbar"
-		role="button">View navbar docs &raquo;</a>
-</p>
