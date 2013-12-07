@@ -28,9 +28,16 @@ import com.soh.sohbeacon.store.BeaconStore;
 /**
  * Servlet implementation class UploadBeacon
  */
-public class UploadBeacon extends HttpServlet {
+public class CreateNotification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doGet(req, resp);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -55,9 +62,25 @@ public class UploadBeacon extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		String notificationType1 = null;
+		String beaconChooser1 = null;
+		Beacon dynamicBeacon = null;
 		for (FileItem fi : items)
 		{
-			if (fi.getFieldName().equals("upload_file"))
+			if (fi.isFormField())
+			{
+			    String name = fi.getFieldName();
+			    String value = fi.getString();
+			    if (name.equals("notificationType1"))
+			    {
+			    	notificationType1 = value;
+			    }
+			    else if (name.equals("beaconChooser1"))
+			    {
+			    	beaconChooser1 = value;
+			    }
+			}
+			else if (fi.getFieldName().equals("upload_file"))
 			{
 				String orginalName = fi.getName();
 				String parts[] = orginalName.split("\\.");
@@ -69,7 +92,7 @@ public class UploadBeacon extends HttpServlet {
 				
 				File uploadedFile = File.createTempFile("dyBeacon", suffix);
 				
-				Beacon dynamicBeacon = new Beacon();
+				dynamicBeacon = new Beacon();
 				
 				BufferedWriter bw = new BufferedWriter(new FileWriter(uploadedFile));
 				try {
@@ -79,14 +102,18 @@ public class UploadBeacon extends HttpServlet {
 				}
 				
 				dynamicBeacon.setFile(uploadedFile);
-				BeaconStore.getInstance().setDynamicBeacon(dynamicBeacon);
-				
+//				dynamicBeacon.setFile(file);
 				System.out.println(uploadedFile);
 			}
 
-			
 			System.out.println(fi);
 		}
+		
+		Beacon beacon = new Beacon();
+		beacon.setType(notificationType1);
+		beacon.setBeaconName(beaconChooser1);
+		
+		BeaconStore.getInstance().addNotificationBeacon(beacon);
 	}
 
 }
