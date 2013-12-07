@@ -9,6 +9,16 @@ public class Beacon {
 	
 	private File file;
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Beacon) {
+			Beacon other = (Beacon) obj;
+			
+			return (other.type.equals(type) && other.beaconName.equals(beaconName));
+		}
+		return super.equals(obj);
+	}
+	
 	public File getFile() {
 		return file;
 	}

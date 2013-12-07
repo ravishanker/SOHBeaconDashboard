@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import com.soh.sohbeacon.model.Beacon;
 
 public class BeaconStore {
+	public static final String STORES_PATH = "/Users/sushant/workspace-hackathon/stores";
+	
 	private static BeaconStore _instance = new BeaconStore();
 	
 	private Beacon dynamicBeacon;
@@ -27,6 +29,17 @@ public class BeaconStore {
 	}
 
 	public void addNotificationBeacon(Beacon newBeacon) {
+		for (int i = 0; i<notificationBeacon.size(); i++)
+		{
+			Beacon b = notificationBeacon.get(i);
+			
+			if (b.equals(newBeacon))
+			{
+				notificationBeacon.remove(i);
+				
+				break;
+			}
+		}
 		this.notificationBeacon.add(newBeacon);
 	}
 	
