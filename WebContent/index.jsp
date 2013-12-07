@@ -43,8 +43,8 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#dynamicOffers">Offers</a></li>
-					<li class="active"><a href="#beaconOffers">Beacons</a></li>
-					<li class="active"><a href="#users">Users</a></li>
+					<li class=""><a href="#beaconOffers">Beacons</a></li>
+					<li class=""><a href="#users">Users</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="http://dynamic.xkcd.com/random/comic/">Random Motivator</a></li>
@@ -59,40 +59,12 @@
 		<!-- Main component for a primary marketing message or call to action -->
 		<div class="jumbotron">
 			<h1>Sydney Opera House</h1>
-			<h2 id="dynamicOffers">Dynamic Beacons</h2>
-			<p>This example is a quick exercise to illustrate how the
-				default, static and fixed to top navbar work. It includes the
-				responsive CSS and HTML, so it also adapts to your viewport and
-				device.</p>
-			<p>To see the difference between static and fixed top navbars,
-				just scroll.</p>
-			<p>
-				<a class="btn btn-lg btn-primary" href="../../components/#navbar"
-					role="button">View navbar docs &raquo;</a>
-			</p>
-			<h2 id="beaconOffers">Beacon notifications</h2>
-			<p>This example is a quick exercise to illustrate how the
-				default, static and fixed to top navbar work. It includes the
-				responsive CSS and HTML, so it also adapts to your viewport and
-				device.</p>
-			<p>To see the difference between static and fixed top navbars,
-				just scroll.</p>
-			<p>
-				<a class="btn btn-lg btn-primary" href="../../components/#navbar"
-					role="button">View navbar docs &raquo;</a>
-			</p>
-			<h2 id="users">Users</h2>
-			<p>This example is a quick exercise to illustrate how the
-				default, static and fixed to top navbar work. It includes the
-				responsive CSS and HTML, so it also adapts to your viewport and
-				device.</p>
-			<p>To see the difference between static and fixed top navbars,
-				just scroll.</p>
-			<p>
-				<a class="btn btn-lg btn-primary" href="../../components/#navbar"
-					role="button">View navbar docs &raquo;</a>
-			</p>
+			
 		</div>
+
+		<%@include file="sections/dynamicBeacon.jsp" %>
+		<%@include file="sections/beaconNotifications.jsp" %>
+		<%@include file="sections/users.jsp" %>
 
 	</div>
 	<!-- /container -->
