@@ -9,6 +9,7 @@
 <link rel="shortcut icon" href="/assets/SOH-favicon.png">
 
 <title>Sydney Opera House</title>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.css" rel="stylesheet">
@@ -73,7 +74,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
 </body>
 </html>

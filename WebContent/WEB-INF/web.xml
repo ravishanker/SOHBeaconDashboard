@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UploadBeacon</display-name>
+    <servlet-name>UploadBeacon</servlet-name>
+    <servlet-class>com.soh.sohbeacon.servlet.UploadBeacon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadBeacon</servlet-name>
+    <url-pattern>/UploadCurrentOfferBeacon</url-pattern>
+  </servlet-mapping>
 </web-app>
