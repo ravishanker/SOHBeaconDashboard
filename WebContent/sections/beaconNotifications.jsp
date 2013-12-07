@@ -22,7 +22,7 @@
 		<tr>
 			<td><%=beacon.getType() %></td>
 			<td><%=beacon.getBeaconName() %></td>
-			<td><%=beacon.getType() %></td>
+			<td><img alt="thumb" src="/stores/<%=beacon.getFileName() %>" class="beaconPreviewImage"></td>
 		</tr>
 		<%} %>
 	</tbody>
@@ -50,7 +50,7 @@
 		<div class="col-sm-10">
 			<select class="form-control" id="beaconChooser1" name="beaconChooser1">
 				<option value="beacon1">Beacon 1</option>
-				<option value="beacon1">Beacon 2</option>
+				<option value="beacon2">Beacon 2</option>
 				<option value="beacon3">Beacon 3</option>
 			</select>
 		</div>

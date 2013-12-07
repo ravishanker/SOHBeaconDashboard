@@ -103,11 +103,10 @@ public class CreateNotification extends HttpServlet {
 			System.out.println(fi);
 		}
 		
-		Beacon beacon = new Beacon();
-		beacon.setType(notificationType1);
-		beacon.setBeaconName(beaconChooser1);
+		dynamicBeacon.setType(notificationType1);
+		dynamicBeacon.setBeaconName(beaconChooser1);
 		
-		BeaconStore.getInstance().addNotificationBeacon(beacon);
+		BeaconStore.getInstance().addNotificationBeacon(dynamicBeacon);
 	}
 
 }
