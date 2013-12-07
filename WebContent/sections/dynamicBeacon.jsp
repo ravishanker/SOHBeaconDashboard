@@ -2,10 +2,12 @@
 <h2 id="dynamicOffers">Dynamic Beacon</h2>
 <p>Beacon 1 is a dynamic content beacon. The following file is being displayed for it.</p>
 
+
 <form id="dynamicBeaconForm" 
 		method="post" 
 		enctype="multipart/form-data" 
 		action="/UploadBeacon">
+	<img id="dynamicBeaconPreview" src="/stores/uploaded.jpg?cache=<%=System.currentTimeMillis() %>" class="beaconPreviewImage"/>
 	<a class='btn btn-primary'
 		style="position: relative;"
 		href='javascript:;'>
@@ -23,12 +25,6 @@
 </form>
 
 
-
-
-
-
-
-
 <script>
 	$(document).ready(function(){
 		$("#dynamicBeaconForm .submitForm").click(function(){
@@ -40,6 +36,9 @@
 						$("#dynamicBeaconForm .submitForm").hide();
 						$("#dynamicBeaconForm #upload-file-info").html('');
 						$("#dynamicBeaconForm")[0].reset();
+						
+						var currentImg = $("#dynamicBeaconForm .beaconPreviewImage").attr('src');
+						$("#dynamicBeaconForm .beaconPreviewImage").attr('src', currentImg+"1");
 					}
 				});
 			});

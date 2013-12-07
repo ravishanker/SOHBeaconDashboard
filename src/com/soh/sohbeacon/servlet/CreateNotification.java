@@ -1,13 +1,9 @@
 package com.soh.sohbeacon.servlet;
 
-import java.awt.PageAttributes.OriginType;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -17,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -90,7 +85,7 @@ public class CreateNotification extends HttpServlet {
 					suffix = "."+parts[parts.length - 1];
 				}
 				
-				File uploadedFile = File.createTempFile("dyBeacon", suffix);
+				File uploadedFile = File.createTempFile("notifBeacon", suffix, new File(BeaconStore.STORES_PATH));
 				
 				dynamicBeacon = new Beacon();
 				
@@ -101,8 +96,7 @@ public class CreateNotification extends HttpServlet {
 					e.printStackTrace();
 				}
 				
-				dynamicBeacon.setFile(uploadedFile);
-//				dynamicBeacon.setFile(file);
+				dynamicBeacon.setFileName(uploadedFile.getName());
 				System.out.println(uploadedFile);
 			}
 

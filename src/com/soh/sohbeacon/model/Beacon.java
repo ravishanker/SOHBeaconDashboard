@@ -1,13 +1,11 @@
 package com.soh.sohbeacon.model;
 
-import java.io.File;
-
 public class Beacon {
 	private String type;
 	
 	private String beaconName;
 	
-	private File file;
+	private String fileName;
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -17,14 +15,6 @@ public class Beacon {
 			return (other.type.equals(type) && other.beaconName.equals(beaconName));
 		}
 		return super.equals(obj);
-	}
-	
-	public File getFile() {
-		return file;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
 	}
 
 	public String getType() {
@@ -41,5 +31,13 @@ public class Beacon {
 
 	public void setBeaconName(String beaconName) {
 		this.beaconName = beaconName;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.session.FileStore;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -56,15 +57,8 @@ public class UploadBeacon extends HttpServlet {
 			{
 				String orginalName = fi.getName();
 				String parts[] = orginalName.split("\\.");
-				String suffix = "";
-				if (parts.length >= 2)
-				{
-					suffix = "."+parts[parts.length - 1];
-				}
 				
-				File uploadedFile = File.createTempFile("dyBeacon", suffix);
-				
-				Beacon dynamicBeacon = new Beacon();
+				File uploadedFile = new File(BeaconStore.STORES_PATH + "uploaded.jpg");
 				
 				BufferedWriter bw = new BufferedWriter(new FileWriter(uploadedFile));
 				try {
@@ -72,9 +66,6 @@ public class UploadBeacon extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				dynamicBeacon.setFile(uploadedFile);
-				BeaconStore.getInstance().setDynamicBeacon(dynamicBeacon);
 				
 				System.out.println(uploadedFile);
 			}

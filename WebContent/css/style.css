@@ -22,3 +22,9 @@ h2 {
 	background-color: transparent;
 	color: transparent;
 }
+
+.beaconPreviewImage {
+	height: 200px;
+	max-width: 400px;
+	margin: 10px;
+}
