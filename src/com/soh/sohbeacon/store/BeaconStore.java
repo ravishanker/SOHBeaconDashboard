@@ -20,10 +20,6 @@ public class BeaconStore {
 	}
 
 	private BeaconStore() {
-		addUserToBeacon("1", "beacon1");
-		addUserToBeacon("2", "beacon2");
-		addUserToBeacon("1", "beacon2");
-		addUserToBeacon("1", "beacon3");
 	}
 
 	public void addNotificationBeacon(Beacon newBeacon) {
